@@ -1,0 +1,539 @@
+@charset "UTF-8";
+/* Recet */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Estilos globales */
+@view-transition {
+  navigation: auto;
+}
+body {
+  font-family: "Inter", "Montserrat", "Dancing Script", sans-serif;
+  background: radial-gradient(circle at 20% 30%, rgba(0, 255, 204, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 70%, rgba(0, 255, 204, 0.15) 0%, transparent 50%);
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  padding-top: 90px;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* Estilos para el Saludo */
+.saludo {
+  position: fixed;
+  right: calc(50% - 85px);
+  top: 35px;
+  z-index: 99999;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 16px;
+  border: 1px solid greenyellow;
+  margin-left: 5rem;
+  display: none;
+}
+
+.saludo.mostrar {
+  display: block;
+}
+
+/* Estilos para el modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  min-height: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid greenyellow;
+  background-color: black;
+  box-shadow: 0 0 30px greenyellow;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .modal .modal-content {
+    width: 80%;
+    padding: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .modal .modal-content {
+    width: 500px;
+    height: 250px;
+    padding: 20px;
+  }
+}
+.modal .close-modal {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: greenyellow;
+  cursor: pointer;
+  line-height: 1;
+}
+@media (min-width: 768px) {
+  .modal .close-modal {
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+  }
+}
+.modal .close-modal:hover {
+  color: rgb(213.2115384615, 255, 149);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
+}
+.modal #modal-title {
+  margin-bottom: 15px;
+  color: greenyellow;
+  text-align: center;
+  font-size: 25px;
+}
+@media (min-width: 768px) {
+  .modal #modal-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+}
+.modal #modal-message {
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .modal #modal-message {
+    font-size: 18px;
+    padding: 10px 30px;
+  }
+}
+
+/* Estilos para el Dot de los títulos */
+.dot span {
+  font-size: 100px;
+  line-height: 0;
+  color: greenyellow;
+}
+
+/* Estilos para los botones */
+.button {
+  width: 120px;
+  height: 38px;
+  background-color: transparent;
+  border: 2px solid greenyellow;
+  border-radius: 10px;
+  padding: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  color: greenyellow;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background-color: greenyellow;
+  border: 2px solid greenyellow;
+  color: black;
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+  font-family: "Inter", "Montserrat", "Dancing Script", sans-serif;
+  font-size: 16px;
+  height: 90px;
+}
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: background-color 0.3s ease;
+}
+
+.navbar .container div ul li a {
+  margin-right: 15px;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23adff2f' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.custom-dropdown-menu {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+.custom-dropdown-menu .dropdown-item {
+  background-color: transparent;
+  text-align: right;
+  color: greenyellow;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.custom-dropdown-menu .dropdown-item:hover, .custom-dropdown-menu .dropdown-item:focus {
+  color: #85e771;
+}
+
+/* Estilos para la barra lateral del menú */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 500px;
+  height: 100vh;
+  background: linear-gradient(to right, transparent 0%, #000000 80%, #000000 100%);
+  color: white;
+  transition: all 0.3s ease;
+  z-index: -1;
+  padding-top: 70px;
+}
+.sidebar.active {
+  right: 0;
+}
+
+/* Estilos sección hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 90px);
+}
+.hero .name h1 {
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+.hero .name h1 span {
+  font-size: 25px;
+  font-weight: 500;
+  color: greenyellow;
+}
+.hero .name h2 {
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  text-align: center;
+}
+.hero .name p {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  padding: 10px;
+}
+.hero div img {
+  width: 100%;
+  height: auto;
+  max-width: 200px;
+}
+
+/* Estilos sección Sobre mi */
+.about {
+  justify-content: center;
+  min-height: 100vh;
+}
+.about .container p {
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+}
+.about .container h2 {
+  font-size: 25px;
+  font-weight: 500;
+}
+.about .container .col img {
+  width: 70px;
+  height: auto;
+}
+.about .container .col .skill {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+  padding: 30px;
+  align-items: center;
+}
+.about .container .col .skill div {
+  border: 1px solid greenyellow;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+}
+.about .container .col .skill div p {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+}
+
+/* Estilos sección proyectos */
+.projects {
+  justify-content: center;
+  min-height: 100vh;
+}
+.projects h2 {
+  font-size: 25px;
+}
+.projects .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.projects .container .card {
+  width: 320px;
+  background-color: transparent;
+  box-shadow: 0 4px 12px rgba(0, 255, 0, 0.1);
+  border-radius: 20px;
+}
+.projects .container .card-img-top {
+  border-radius: 20px 20px 0 0;
+}
+.projects .container .card-title {
+  color: greenyellow;
+  font-weight: 700;
+}
+.projects .container .card-text {
+  color: white;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+/* Estilos sección contacto */
+.contact {
+  min-height: 60vh;
+  margin-top: 100px;
+}
+.contact form .container {
+  width: 320px;
+}
+.contact form .container input,
+.contact form .container textarea {
+  background-color: transparent;
+  border: 1px solid greenyellow;
+  border-radius: 10px;
+  color: white;
+}
+.contact form .container input::placeholder,
+.contact form .container textarea::placeholder {
+  color: rgb(126, 128, 124);
+}
+.contact form .container input:focus,
+.contact form .container textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px greenyellow;
+  color: white;
+}
+
+/* Estilos para la página de proyectos */
+.project {
+  display: none;
+}
+.project .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: calc(100vh - 90px);
+}
+.project .container .description h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: greenyellow;
+}
+.project .container .description p {
+  font-size: 14px;
+}
+.project .container .mockup img {
+  width: 90%;
+  margin-top: 20px;
+}
+
+/* Breakpoints */
+/* Tablet */
+@media screen and (min-width: 768px) {
+  section {
+    scroll-margin-top: 100px;
+  }
+  .dot span {
+    font-size: 120px;
+  }
+  .navbar {
+    height: 100px;
+  }
+  .hero div img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+  .hero .name h1 {
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+  }
+  .hero .name h1 span {
+    font-size: 40px;
+  }
+  .hero .name h2 {
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+  }
+  .hero .name p {
+    font-size: 16px;
+    font-weight: 300;
+    padding-right: 90px;
+    padding-left: 90px;
+  }
+  .about {
+    padding: 30px 0;
+  }
+  .about .container p {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  .about .container h2 {
+    font-size: 35px;
+  }
+  .about .container .col .skill {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
+  .projects {
+    padding: 50px 0;
+  }
+  .projects h2 {
+    font-size: 35px;
+  }
+  .project .container .description {
+    padding: 0 35px;
+  }
+  .project .container .description h1 {
+    font-size: 30px;
+  }
+  .project .container .description p {
+    font-size: 16px;
+  }
+  .contact form .container {
+    width: 500px;
+  }
+}
+/* Desktop */
+@media screen and (min-width: 992px) {
+  section {
+    scroll-margin-top: 100px;
+  }
+  .dot span {
+    font-size: 150px;
+  }
+  .hero div img {
+    width: 100%;
+    height: auto;
+    max-width: 339px;
+  }
+  .hero .name h1 {
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    text-align: left;
+  }
+  .hero .name h1 span {
+    font-size: 40px;
+  }
+  .hero .name h2 {
+    font-size: 40px;
+    font-weight: 500;
+    color: white;
+    text-align: left;
+  }
+  .hero .name p {
+    font-size: 20px;
+    text-align: left;
+    padding-left: 0;
+    padding-right: 100px;
+  }
+  .about .container {
+    padding: 0 80px;
+  }
+  .about .container p {
+    font-size: 20px;
+  }
+  .about .container h2 {
+    font-size: 40px;
+  }
+  .about .container .col .skill {
+    display: grid;
+    grid-template-columns: repeat(4, 150px);
+    grid-template-rows: 1fr;
+    gap: 20px;
+    justify-content: center;
+  }
+  .projects h2 {
+    font-size: 40px;
+  }
+  .project .container {
+    min-height: calc(100vh - 100px);
+    flex-direction: row;
+  }
+  .project .container .description {
+    width: 60%;
+    min-width: 400px;
+  }
+  .project .container .description p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .project .container .description h1 {
+    font-size: 40px;
+    font-weight: 700;
+    color: greenyellow;
+  }
+  .project .container .mockup img {
+    width: 80%;
+  }
+  .custom-dropdown-menu {
+    background: rgba(0, 0, 0, 0.6);
+    padding-right: 20px;
+  }
+  .contact {
+    margin-top: 50px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

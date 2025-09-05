@@ -1,0 +1,24 @@
+export const proyectos = [
+    {
+        id: 1,
+        titulo: "Las Acacias Urbanización",
+        descripcion: "Sitio web para Las Acacias Urbanización. Maquetación responsiva y presentación limpia del contenido.",
+        descripcionLarga: "Desarrollo de un sitio web responsive con una interfaz limpia, moderna y de fácil navegación. El diseño fue pensado para ofrecer una experiencia fluida en todos los dispositivos, incorporando secciones personalizadas orientadas a destacar la identidad del proyecto y facilitar el acceso a la información clave para los usuarios interesados en la urbanización.",
+        img: ["assets/acacias.png", "../assets/lasacacias-mockup.png", "Logo Las Acacias Urbanización"]
+    },
+    {
+        id: 2,
+        titulo: "Municipalidad de Patagones",
+        descripcion: "Web institucional para la Municipalidad de Patagones, maquetación responsiva con menú y secciones funcionales.",
+        descripcionLarga: "Mantenimiento y actualización del sitio web de la Municipalidad de Patagones, mejorando su funcionalidad, optimizando el rendimiento y asegurando la actualización constante de contenido. Implementé nuevas secciones y mejoré la organización de eventos y noticias, brindando una experiencia más intuitiva y accesible.",
+        img: ["assets/patagones.png", "../assets/mpatagones-mockup.png", "Logo Municipalidad de Patagones"]
+
+    },
+    {
+        id: 3,
+        titulo: "Gran Dt Score",
+        descripcion: "Web de seguimiento de puntajes. Proyecto personal con estadísticas dinámicas y diseño minimalista.",
+        descripcionLarga: "Desarrollo de una aplicación web con sistema de formaciones tácticas, gestión de plantillas y cálculo automático de puntajes en tiempo real. Diseñada para ofrecer una experiencia fluida y responsiva, permite a los usuarios crear y administrar equipos virtuales de manera sencilla, incorporando funcionalidades avanzadas como sistema de suplentes por línea y seguimiento detallado del rendimiento de jugadores.",
+        img: ["assets/grandtscore.png", "../assets/grandtscore-mockup.png", "Logo proyecto personal GranDtScore"]
+    }
+]
