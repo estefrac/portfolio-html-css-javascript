@@ -33,4 +33,3 @@ Este proyecto es una evolución de un portfolio web originalmente desarrollado c
 - <img src="assets/html.svg" alt="HTML5" width="24" style="vertical-align:middle;"/> **HTML5**: Estructura semántica del portfolio.
 - <img src="assets/css.svg" alt="CSS3" width="24" style="vertical-align:middle;"/> **CSS3**: Estilos y diseño responsive.
 - <img src="assets/js.svg" alt="JavaScript" width="24" style="vertical-align:middle;"/> **JavaScript ES6+**: Funcionalidades dinámicas e interacciones.
-- <img src="assets/localstorage.svg" alt="LocalStorage" width="24" style="vertical-align:middle;"/> **LocalStorage**: Almacenamiento persistente de datos del usuario.
