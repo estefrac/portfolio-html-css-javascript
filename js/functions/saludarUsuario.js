@@ -1,7 +1,7 @@
 export function saludarUsuario(nombreUsuario, saludoUsuario){
   if (nombreUsuario){
   saludoUsuario.innerHTML = `
-    Hola ${nombreUsuario}! <span id="lottie-hand" style="width:25px; height:25px; display:inline-block; vertical-align:top; margin-top:-2px;"></span>
+    Hola ${nombreUsuario}! <span id="lottie-hand" class="manito"></span>
   `;
     saludoUsuario.classList.add('mostrar');
     if (window.lottie) {
