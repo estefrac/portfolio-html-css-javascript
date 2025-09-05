@@ -1,4 +1,4 @@
-# 🌐 Portfolio Web - 2da entrega curso de Javascript CODERHOUSE
+# Portfolio Web - 2da entrega curso de Javascript CODERHOUSE
 
 Este proyecto es una evolución de un portfolio web originalmente desarrollado con **HTML** y **CSS**, al que se le han incorporado funcionalidades dinámicas utilizando **JavaScript** para cumplir con los requisitos de la segunda entrega del curso de JavaScript.
 
