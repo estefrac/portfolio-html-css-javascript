@@ -51,95 +51,6 @@ section {
   margin-top: -2px;
 }
 
-/* Estilos para el modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99999;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-.modal .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 500px;
-  min-height: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid greenyellow;
-  background-color: black;
-  box-shadow: 0 0 30px greenyellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-@media (min-width: 768px) {
-  .modal .modal-content {
-    width: 80%;
-    padding: 30px;
-  }
-}
-@media (min-width: 1024px) {
-  .modal .modal-content {
-    width: 500px;
-    height: 250px;
-    padding: 20px;
-  }
-}
-.modal .close-modal {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 24px;
-  font-weight: bold;
-  color: greenyellow;
-  cursor: pointer;
-  line-height: 1;
-}
-@media (min-width: 768px) {
-  .modal .close-modal {
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-  }
-}
-.modal .close-modal:hover {
-  color: rgb(213.2115384615, 255, 149);
-  transform: scale(1.1);
-  transition: all 0.2s ease;
-}
-.modal #modal-title {
-  margin-bottom: 15px;
-  color: greenyellow;
-  text-align: center;
-  font-size: 25px;
-}
-@media (min-width: 768px) {
-  .modal #modal-title {
-    font-size: 30px;
-    margin-bottom: 10px;
-  }
-}
-.modal #modal-message {
-  text-align: center;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  line-height: 1.2;
-}
-@media (min-width: 768px) {
-  .modal #modal-message {
-    font-size: 18px;
-    padding: 10px 30px;
-  }
-}
-
 /* Estilos para el Dot de los títulos */
 .dot span {
   font-size: 100px;
@@ -542,6 +453,22 @@ section {
   .contact {
     margin-top: 50px;
   }
+}
+
+/* Estilos modal SweetAlert */
+.swal2-popup {
+  background: #000000 !important;
+  border: 1px solid greenyellow !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 30px 0 greenyellow !important;
+}
+
+.swal2-title {
+  color: greenyellow !important;
+}
+
+.swal2-html-container {
+  color: #ffffff !important;
 }
 
 /*# sourceMappingURL=main.css.map */

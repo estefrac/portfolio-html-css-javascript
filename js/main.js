@@ -1,26 +1,18 @@
-import { proyectos } from './db.js';
 import { mostrarProyectos } from './functions/mostrarProyectos.js';
 import { saludarUsuario } from './functions/saludarUsuario.js';
 import { guardarNombreUsuario } from './functions/guardarNombreUsuario.js';
-import { mostrarModal } from './functions/mostrarModal.js';
-import { cerrarModal } from './functions/cerrarModal.js';
+import { initEmailJS, sendContactEmail } from './functions/emailService.js';
 
-// --> Local Storage
-let nombreUsuario = localStorage.getItem('nombreUsuario')
+let nombreUsuario = localStorage.getItem('nombreUsuario');
 
-// --> DOM
+const projectsContainer = document.getElementById('projects-container');
+const projectsDescription = document.getElementById('projects-description');
+const sectionProject = document.querySelector('.project');
+const sectionProjects = document.querySelector('.projects');
+const saludoUsuario = document.getElementById('saludo-usuario');
 
-const projectsContainer = document.getElementById('projects-container')
-const projectsDescription = document.getElementById('projects-description')
-const sectionProject = document.querySelector('.project')
-const sectionProjects = document.querySelector('.projects')
-const saludoUsuario = document.getElementById('saludo-usuario')
-const formContacto = document.getElementById('contact-form');
-const confirmationModal = document.getElementById('confirmation-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalMessage = document.getElementById('modal-message');
-const modalCloseBtn = document.getElementById('modal-close-btn');
-const closeModalSpan = document.getElementById('close-modal');
+mostrarProyectos(projectsContainer, projectsDescription, sectionProjects, sectionProject);
+saludarUsuario(nombreUsuario, saludoUsuario);
 
 // --> Eventos
 
@@ -28,38 +20,83 @@ const closeModalSpan = document.getElementById('close-modal');
 
 document.addEventListener('click', function(e) {
     if (e.target && e.target.id === 'back-projects') {
-        e.preventDefault()
-        sectionProjects.style.display = 'block'
-        sectionProject.style.display = 'none'
+        e.preventDefault();
+        sectionProjects.style.display = 'block';
+        sectionProject.style.display = 'none';
         document.getElementsByClassName('projects')[0].scrollIntoView({ behavior: 'smooth' });
-
     }
 });
 
 // Modificamos del comportamiento de la Navbar segun el estado de las seccion Proyectos
 document.querySelector('a[href="#projects"]').addEventListener('click', function(e) {
-  e.preventDefault();
-  if (sectionProjects.style.display !== 'none') {
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  } else {
-    document.getElementsByClassName('project')[0].scrollIntoView({ behavior: 'smooth' });
-  }
+    e.preventDefault();
+    if (sectionProjects.style.display !== 'none') {
+        document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    } else {
+        document.getElementsByClassName('project')[0].scrollIntoView({ behavior: 'smooth' });
+    }
 });
 
-// Capturamos el nombre del usuario y mostramos el modal de confirmacion
-formContacto.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const nombre = document.getElementById('nombre').value;
+// --> EmailJS
 
-  guardarNombreUsuario(nombre, saludoUsuario);
+document.addEventListener('DOMContentLoaded', function() {
+    initEmailJS();
 
-  mostrarModal(nombre , modalTitle, modalMessage, confirmationModal);
-  formContacto.reset();
+    const contactForm = document.getElementById("contact-form");
+
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombreInput = document.getElementById('nombre');
+        const emailInput = document.getElementById('email');
+        const mensajeInput = document.getElementById('mensaje');
+        const nombre = nombreInput ? nombreInput.value : '';
+        const email = emailInput ? emailInput.value : '';
+        const mensaje = mensajeInput ? mensajeInput.value : '';
+
+        guardarNombreUsuario(nombre, saludoUsuario);
+
+        Swal.fire({
+            title: 'Enviando mensaje...',
+            text: 'Por favor espera un momento',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            },
+            customClass: {
+                confirmButton: 'boton-personalizado'
+            }
+        });
+        
+        sendContactEmail(nombre, email, mensaje)
+            .then(() => {
+                Swal.fire({
+                    title: `¡Gracias, ${nombre.trim()}!`,
+                    text: `Recibimos tu mensaje correctamente.`,
+                    icon: "success",
+                    background: '#000000',
+                    color: 'greenyellow',
+                    buttonsStyling: false,
+                    confirmButtonText: 'Entendido',
+                    customClass: {
+                        confirmButton: 'button'
+                    }
+                });
+                contactForm.reset();
+            })
+            .catch(() => {
+                Swal.fire({
+                    title: "Error",
+                    text: "No pudimos enviar tu mensaje. Intenta nuevamente.",
+                    icon: "error",
+                    background: '#000000',
+                    color: 'greenyellow',
+                    buttonsStyling: false,
+                    confirmButtonText: 'Reintentar',
+                    customClass: {
+                        confirmButton: 'button'
+                    }
+                });
+            });
+    });
 });
-
-// Cerramos el modal de confirmacion
-modalCloseBtn.addEventListener('click', () => cerrarModal(confirmationModal));
-closeModalSpan.addEventListener('click', () => cerrarModal(confirmationModal));
-
-mostrarProyectos(proyectos, projectsContainer, projectsDescription, sectionProjects, sectionProject)
-saludarUsuario(nombreUsuario, saludoUsuario)

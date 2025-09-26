@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!--Description-->
     <meta
       name="description"
       content="Esteban Fraccascia, desarrollador web frontend. Construyo sitios web modernos, visualmente atractivos y fáciles de usar, cuidando cada detalle del diseño y su funcionalidad."
-    >
+    />
 
     <!--Keywords-->
     <meta
       name="keywords"
       content="Esteban Fraccascia, desarrollador web, frontend, portfolio, proyectos, contacto"
-    >
+    />
 
     <title>Portfolio | Esteban Sebastian Fraccascia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,6 +30,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   </head>
 
   <body id="hero">
@@ -189,6 +190,7 @@
                 type="text"
                 class="form-control"
                 id="nombre"
+                name="nombre"
                 placeholder="Tu nombre"
                 required
               />
@@ -199,6 +201,7 @@
                 type="email"
                 class="form-control"
                 id="email"
+                name="email"
                 placeholder="tu@email.com"
                 required
               />
@@ -208,26 +211,16 @@
               <textarea
                 class="form-control"
                 id="mensaje"
+                name="mensaje"
                 placeholder="Escribe tu mensaje aquí"
                 rows="3"
+                required
               ></textarea>
             </div>
             <button type="submit" class="button">Enviar</button>
           </div>
         </form>
       </section>
-
-      <!-- Modal -->
-      <div id="confirmation-modal" class="modal">
-        <div class="modal-content">
-          <span class="close-modal" id="close-modal">&times;</span>
-          <h2 id="modal-title">¡Gracias por tu mensaje!</h2>
-          <p id="modal-message"></p>
-          <div class="d-flex justify-content-center">
-            <button class="button" id="modal-close-btn">Aceptar</button>
-          </div>
-        </div>
-      </div>
 
       <!-- Footer -->
       <footer>
@@ -247,7 +240,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/navbar-sidebar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
