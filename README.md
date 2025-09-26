@@ -42,6 +42,6 @@ Este proyecto es la versión final de mi portfolio web, desarrollado con **HTML*
 - <img src="assets/html.svg" alt="HTML5" width="24" style="vertical-align:middle;"/> **HTML5**: Estructura semántica del portfolio.
 - <img src="assets/css.svg" alt="CSS3" width="24" style="vertical-align:middle;"/> **CSS3**: Estilos y diseño responsive.
 - <img src="assets/js.svg" alt="JavaScript" width="24" style="vertical-align:middle;"/> **JavaScript ES6+**: Funcionalidades dinámicas e interacciones.
-- <img src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" alt="Axios" width="24" style="vertical-align:middle;"/> **Axios**: Consumo de datos desde JSON.
-- <img src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" alt="EmailJS" width="24" style="vertical-align:middle;"/> **EmailJS**: Envío de emails desde el frontend.
-- <img src="https://cdn.jsdelivr.net/npm/sweetalert2@11" alt="SweetAlert2" width="24" style="vertical-align:middle;"/> **SweetAlert2**: Modales personalizados y modernos.
+- <img src="assets/axios.svg" alt="Axios" width="24" style="vertical-align:middle;"/> **Axios**: Consumo de datos desde JSON.
+- <img src="assets/emailjs.svg" alt="EmailJS" width="24" style="vertical-align:middle;"/> **EmailJS**: Envío de emails desde el frontend.
+- <img src="assets/sweetalert.svg" alt="SweetAlert2" width="24" style="vertical-align:middle;"/> **SweetAlert2**: Modales personalizados y modernos.
